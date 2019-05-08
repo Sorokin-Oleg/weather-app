@@ -1,0 +1,43 @@
+/* CSS librarys: */
+@import "../node_modules/normalize.css/normalize.css";
+
+/* roboto-regular - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/roboto-v19-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Roboto'), local('Roboto-Regular'),
+         url('./fonts/roboto-v19-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./fonts/roboto-v19-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./fonts/roboto-v19-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('./fonts/roboto-v19-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+html {
+    line-height: 1.4rem;
+    font-size: 1rem;    
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after { box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; }
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+} 
