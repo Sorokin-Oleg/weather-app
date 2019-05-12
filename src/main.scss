@@ -1,18 +1,19 @@
 /* CSS librarys: */
 @import "../node_modules/normalize.css/normalize.css";
 
-/* roboto-regular - latin */
+/* montserrat-regular - latin */
 @font-face {
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/roboto-v19-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local('Roboto'), local('Roboto-Regular'),
-         url('./fonts/roboto-v19-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('./fonts/roboto-v19-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('./fonts/roboto-v19-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('./fonts/roboto-v19-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-}
+    src: url('./fonts/montserrat-v13-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Montserrat Regular'), local('Montserrat-Regular'),
+         url('./fonts/montserrat-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./fonts/montserrat-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./fonts/montserrat-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('./fonts/montserrat-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./fonts/montserrat-v13-latin-regular.svg#Montserrat') format('svg'); /* Legacy iOS */
+  }
 
 html {
     line-height: 1.4rem;
@@ -21,7 +22,7 @@ html {
 }
 
 body {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     margin: 0;
