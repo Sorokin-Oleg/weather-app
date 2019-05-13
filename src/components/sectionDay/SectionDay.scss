@@ -1,11 +1,27 @@
 .container-section-day {
     display: grid;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    grid-template-rows: 5rem auto;
+    grid-template-areas: 'search search search'
+                         'sunrise lang sunset'
+                         'city city city'
+                         'temp temp temp'
+                         'weatherIcon weatherIcon weatherIcon'
+                         'description description description'
+                         'date date date'
+                         'main main main';
 }
 
-// @media screen and (max-width: 768px) {
-//     .container-section-day {
-        
-//     }
-// }
+@media screen and (max-width: 768px) {
+    .container-section-day {
+        height: 80%;        
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-section-day {
+        height: 80%;
+        grid-template-rows: 4rem auto;       
+    }
+}
