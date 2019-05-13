@@ -1,0 +1,15 @@
+.container-section-week {
+    background: rgba(255,255,255, 0.2);
+    height: 100%;
+    min-width: 22rem;
+    width: 22vw;    
+}
+
+@media screen and (max-width: 768px) {
+    .container-section-week {
+        min-height: 16rem;
+        height: 20vh;
+        width: 100%;
+        overflow-x: auto;
+    }
+}
