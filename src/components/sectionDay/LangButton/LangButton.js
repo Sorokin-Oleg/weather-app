@@ -3,7 +3,9 @@ import './LangButton.scss';
 
 const LangButton = (props) => {
     return (
-        <div className='container-lang-button'></div>
+        <div className='container-lang-button'>
+            <button>RU</button>
+        </div>
     );
 };
 
