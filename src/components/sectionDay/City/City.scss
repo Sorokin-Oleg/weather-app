@@ -1,3 +1,18 @@
 .container-city {
     grid-area: city;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & span {
+        color: #fff;
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-city {
+        & span {
+            font-size: 1.2rem;
+        }
+    }
 }

@@ -3,7 +3,9 @@ import './City.scss';
 
 const City = (props) => {
     return ( 
-        <div className='container-city'></div>
+        <div className='container-city'>
+            <span>MINSK</span>
+        </div>
     );
 };
 

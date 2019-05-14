@@ -12,7 +12,6 @@ import WeatherMain from './WeatherMain/WeatherMain';
 import './SectionDay.scss';
 
 
-
 class SectionDay extends React.Component {
     render() {
         return (
