@@ -1,3 +1,26 @@
 .container-weather-main {
     grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.6rem;
+    color: #fff;
+    & span {
+        padding: 0 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-weather-main {
+        flex-wrap: wrap;
+        & div {
+            display: flex;
+            justify-content: center;
+            width: 50%;
+        }
+        & span {
+            font-size: 1.2rem;
+            padding: 0 0.2rem;
+        }
+    }
 }
