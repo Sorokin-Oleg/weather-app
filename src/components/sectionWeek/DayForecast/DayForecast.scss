@@ -1,1 +1,40 @@
- 
+.container-day-forecast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    color: #fff;
+    font-size: 1.4rem;
+    & span {
+        padding: 0.2rem 0.5rem;
+    }
+    .day-temp {
+        font-size: 1.6rem;
+    }
+    & img {
+        height: 35%;
+        padding: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-day-forecast {
+        width: 20%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-day-forecast {
+        min-width: 12rem;
+        font-size: 1rem;
+        .day-temp {
+            font-size: 1.2rem;
+        }
+        & span {
+            padding: 0.5rem;
+        }
+    }
+}
