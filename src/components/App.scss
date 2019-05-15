@@ -1,0 +1,23 @@
+.container-app {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+    .container-app {
+        flex-direction: column-reverse;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-app {
+        min-height: 50rem;
+    }
+}

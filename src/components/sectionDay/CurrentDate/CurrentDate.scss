@@ -1,0 +1,18 @@
+.container-current-date {
+    grid-area: date;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & span {
+        color: #fff;
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-current-date {
+        & span {
+            font-size: 1.2rem;
+        }
+    }
+}

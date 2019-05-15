@@ -1,0 +1,21 @@
+.container-sunset {
+    grid-area: sunset;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    padding-right: 10%;
+    & span {
+        color: #fff;
+        font-size: 1.6rem;
+        padding: 0.2rem 0;     
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-sunset {
+        & span {
+            font-size: 1.2rem;
+        }
+    }
+}
