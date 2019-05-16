@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect, dispatch } from 'react-redux';
 import Search from './Search/Search';
 import Sunrise from './Sunrise/Sunrise';
 import Sunset from './Sunset/Sunset';
@@ -13,22 +14,39 @@ import './SectionDay.scss';
 
 
 class SectionDay extends React.Component {
+    
     render() {
         return (
             <section className='container-section-day'>
-                <Search/>
-                <Sunrise/>
-                <LangButton/>
-                <Sunset/>
+                <Search 
+                    lang={this.props.app.lang}
+                />
+                <Sunrise
+                    lang={this.props.app.lang}
+                />
+                <LangButton
+                    lang={this.props.app.lang}
+                />
+                <Sunset
+                    lang={this.props.app.lang}
+                />
                 <City/>
                 <Temperature/>
                 <WeatherIcon/>
                 <WeatherDescription/>
                 <CurrentDate/>
-                <WeatherMain/>
+                <WeatherMain
+                    lang={this.props.app.lang}
+                />
             </section>
         );
     };
 };
 
-export default SectionDay;
+const mapStateToProps = state => {
+    return {
+        app: state        
+    };
+};
+
+export default connect(mapStateToProps) (SectionDay);
