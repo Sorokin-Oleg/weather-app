@@ -1,9 +1,19 @@
-const reduser = (state = [], action) => {
+export const switchLang = (state = false, action) => {    
+    switch (action.type) {        
+        case 'SWICH_LANG':
+            return action.switchLang;
+        
+        default: 
+            return state;
+    };    
+};
+
+export const changeUnit = (state = false, action) => {
     switch (action.type) {
-        case "LANG":
-        return state = action.data;
-        default:
-        return state;
+        case 'CHANGE_UNIT':
+            return action.changeUnit;
+        
+        default: 
+            return state;
     };
 };
-export default reduser;

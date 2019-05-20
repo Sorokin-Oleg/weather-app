@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect, dispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import Search from './Search/Search';
 import Sunrise from './Sunrise/Sunrise';
 import Sunset from './Sunset/Sunset';
@@ -13,39 +13,43 @@ import WeatherMain from './WeatherMain/WeatherMain';
 import './SectionDay.scss';
 
 
-class SectionDay extends React.Component {
-    
-    render() {
+class SectionDay extends React.Component { 
+    render() {           
+        console.log(this.props.state); 
         return (
             <section className='container-section-day'>
                 <Search 
-                    lang={this.props.app.lang}
+                    lang={this.props.lang}
                 />
                 <Sunrise
-                    lang={this.props.app.lang}
+                    lang={this.props.lang}
                 />
                 <LangButton
-                    lang={this.props.app.lang}
+                    lang={this.props.lang}
                 />
                 <Sunset
-                    lang={this.props.app.lang}
+                    lang={this.props.lang}
                 />
                 <City/>
-                <Temperature/>
+                <Temperature
+                    tempUnits={this.props.unit}
+                />
                 <WeatherIcon/>
                 <WeatherDescription/>
                 <CurrentDate/>
                 <WeatherMain
-                    lang={this.props.app.lang}
+                    lang={this.props.lang}
+                    tempUnits={this.props.unit}
                 />
-            </section>
-        );
-    };
+            </section>                        
+        );        
+    };    
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        app: state        
+        lang: state.switchLang,
+        unit: state.changeUnit
     };
 };
 
