@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { connect} from 'react-redux';
+import { currentDayFetchData } from './../../actions/actions';
 import Search from './Search/Search';
 import Sunrise from './Sunrise/Sunrise';
 import Sunset from './Sunset/Sunset';
@@ -14,9 +16,16 @@ import './SectionDay.scss';
 
 
 class SectionDay extends React.Component { 
-    render() {           
-        console.log(this.props.state); 
-        return (
+
+    componentDidMount() {
+        this.props.fetchData('https://api.openweathermap.org/data/2.5/find?q=Minsk%20%20&units=metric&lang=ru&units=metric&appid=33c970bfa5f1615719f1302f43d324db');
+    };
+
+    render() {    
+        
+        console.log(this.props.state);  
+
+        return (            
             <section className='container-section-day'>
                 <Search 
                     lang={this.props.lang}
@@ -46,11 +55,22 @@ class SectionDay extends React.Component {
     };    
 };
 
+SectionDay.propTypes = {
+    fetchData: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => {
     return {
-        lang: state.switchLang,
-        unit: state.changeUnit
+        // lang: state.switchLang,
+        // unit: state.changeUnit
+        state
     };
 };
 
-export default connect(mapStateToProps) (SectionDay);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(currentDayFetchData(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps) (SectionDay);

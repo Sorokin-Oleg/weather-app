@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
-import { switchLang, changeUnit } from './reduser';
+import { switchLang, changeUnit, currentDayHasErrored, currentDayIsLoading, currentDayData } from './reduser';
 
 export default combineReducers({
     switchLang,
-    changeUnit
+    changeUnit,
+    currentDayHasErrored,
+    currentDayIsLoading,
+    currentDayData
 });
