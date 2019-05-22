@@ -13,18 +13,16 @@ import WeatherDescription from './WeatherDescription/WeatherDescription';
 import CurrentDate from './CurrentDate/CurrentDate';
 import WeatherMain from './WeatherMain/WeatherMain';
 import './SectionDay.scss';
+import { currentDayData } from './../../reduser/reduser';
 
 
 class SectionDay extends React.Component { 
 
     componentDidMount() {
-        this.props.fetchData('https://api.openweathermap.org/data/2.5/find?q=Minsk%20%20&units=metric&lang=ru&units=metric&appid=33c970bfa5f1615719f1302f43d324db');
-    };
+        this.props.fetchData('https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&units=metric&appid=33c970bfa5f1615719f1302f43d324db');
+    };    
 
-    render() {    
-        
-        console.log(this.props.state);  
-
+    render() {
         return (            
             <section className='container-section-day'>
                 <Search 
@@ -32,23 +30,36 @@ class SectionDay extends React.Component {
                 />
                 <Sunrise
                     lang={this.props.lang}
+                    sunrise={this.props.sunrise}
                 />
                 <LangButton
                     lang={this.props.lang}
                 />
                 <Sunset
                     lang={this.props.lang}
+                    sunset={this.props.sunset}
                 />
-                <City/>
+                <City
+                    city={this.props.city}                    
+                />
                 <Temperature
                     tempUnits={this.props.unit}
+                    temp={this.props.temp}
                 />
-                <WeatherIcon/>
-                <WeatherDescription/>
-                <CurrentDate/>
+                <WeatherIcon
+                />
+                <WeatherDescription
+                    description={this.props.description}
+                />
+                <CurrentDate
+                />
                 <WeatherMain
                     lang={this.props.lang}
                     tempUnits={this.props.unit}
+                    clouds={this.props.clouds}
+                    wind={this.props.wind}
+                    humidity={this.props.humidity}
+                    pressure={this.props.pressure}
                 />
             </section>                        
         );        
@@ -61,9 +72,18 @@ SectionDay.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        // lang: state.switchLang,
-        // unit: state.changeUnit
-        state
+        lang: state.switchLang,
+        unit: state.changeUnit,
+        error: state.currentDayHasErrored,
+        city: state.currentDayData.city,
+        temp: state.currentDayData.temp,
+        description: state.currentDayData.description,
+        clouds: state.currentDayData.clouds,
+        wind: state.currentDayData.wind,
+        humidity: state.currentDayData.humidity,
+        pressure: state.currentDayData.pressure,
+        sunrise: state.currentDayData.sunrise,
+        sunset: state.currentDayData.sunset,
     };
 };
 

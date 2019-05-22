@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './WeatherMain.scss';
 
 const WeatherMain = (props) => {
-    // Defaulut true English
+
     const description = {
         clouds: props.lang ? 'Clouds': 'Облачность',
         wind: props.lang ? 'Wind' : 'Ветер',
@@ -20,22 +20,29 @@ const WeatherMain = (props) => {
         <div className='container-weather-main'>
             <div>
                 <span>{description.clouds}</span>
-                <span>4 %</span>
+                <span>{props.clouds} %</span>
             </div>
             <div>
                 <span>{description.wind}</span>
-                <span>2 {windUnits}</span>
+                <span>{props.wind} {windUnits}</span>
             </div>
             <div>
                 <span>{description.hymidity}</span>
-                <span>75%</span>
+                <span>{props.humidity} %</span>
             </div>
             <div>
                 <span>{description.pressure}</span>
-                <span>710.00 {props.lang ? 'hPa' : 'гПа'}</span>
+                <span>{props.pressure} {props.lang ? 'hPa' : 'гПа'}</span>
             </div>
         </div>
     );
+};
+
+WeatherMain.defaultProps = {
+    clouds: '0',
+    wind: '0',
+    humidity: '0',
+    pressure: '0'
 };
 
 export default WeatherMain;

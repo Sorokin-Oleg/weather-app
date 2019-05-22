@@ -9,7 +9,6 @@ class Temperature extends React.Component {
         this.ChangeUnits = this.ChangeUnits.bind(this);
     };
 
-
     ChangeUnits() {
         let bool = !this.props.tempUnits;
         this.props.dispatch(changeUnit(bool));
@@ -19,7 +18,7 @@ class Temperature extends React.Component {
         return ( 
             <div className='container-temp'>
                 <div className='content-temp'>
-                    <span id='temp'>22°</span>
+                    <span id='temp'>{this.props.temp}°</span>
                     <div className='content-button-temp'>
                         <span>{this.props.tempUnits ? 'C': 'F'}</span>
                         <button onClick={this.ChangeUnits}>{this.props.tempUnits ? 'F': 'C'}</button>
@@ -28,6 +27,11 @@ class Temperature extends React.Component {
             </div>
         );
     };
+};
+
+Temperature.defaultProps = {
+    temp: '0',
+    tempUnits: 'C'
 };
 
 export default connect() (Temperature);

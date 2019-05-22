@@ -38,10 +38,23 @@ export const currentDayIsLoading = (state = false, action) => {
     };
 };
 
-export const currentDayData = (state = [], action) => {
+let STATE_CURRENT_DAY_DATA = {};
+
+export const currentDayData = (state = {}, action) => {
     switch (action.type) {
         case 'CURRENT_DAY_FETCH_DATA_SUCCESS':
-            return action.data;
+            STATE_CURRENT_DAY_DATA = {
+                city: action.data.name,
+                temp: action.data.main.temp,
+                description: action.data.weather[0].description,
+                clouds: action.data.clouds.all,
+                wind: action.data.wind.speed,
+                humidity: action.data.main.humidity,
+                pressure: action.data.main.pressure,
+                sunrise: action.data.sys.sunrise,
+                sunset: action.data.sys.sunset               
+            };                
+            return STATE_CURRENT_DAY_DATA;    
 
         default:
             return state;
