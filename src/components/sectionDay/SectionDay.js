@@ -47,6 +47,7 @@ class SectionDay extends React.Component {
                     temp={this.props.temp}
                 />
                 <WeatherIcon
+                    icon={this.props.icon}
                 />
                 <WeatherDescription
                     description={this.props.description}
@@ -86,7 +87,8 @@ const mapStateToProps = (state) => {
         pressure: state.currentDayData.pressure,
         sunrise: state.currentDayData.sunrise,
         sunset: state.currentDayData.sunset,
-        currentDate: state.currentDayData.currentDate
+        currentDate: state.currentDayData.currentDate,
+        icon: state.currentDayData.icon
     };
 };
 
