@@ -52,7 +52,8 @@ export const currentDayData = (state = {}, action) => {
                 humidity: action.data.main.humidity,
                 pressure: action.data.main.pressure,
                 sunrise: action.data.sys.sunrise,
-                sunset: action.data.sys.sunset               
+                sunset: action.data.sys.sunset,
+                currentDate: action.data.dt              
             };                
             return STATE_CURRENT_DAY_DATA;    
 

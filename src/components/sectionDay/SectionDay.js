@@ -52,6 +52,8 @@ class SectionDay extends React.Component {
                     description={this.props.description}
                 />
                 <CurrentDate
+                    currentDate={this.props.currentDate}
+                    lang={this.props.lang}
                 />
                 <WeatherMain
                     lang={this.props.lang}
@@ -84,6 +86,7 @@ const mapStateToProps = (state) => {
         pressure: state.currentDayData.pressure,
         sunrise: state.currentDayData.sunrise,
         sunset: state.currentDayData.sunset,
+        currentDate: state.currentDayData.currentDate
     };
 };
 
