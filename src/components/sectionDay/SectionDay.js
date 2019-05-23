@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { currentDayFetchData } from './../../actions/actions';
 import Search from './Search/Search';
 import Sunrise from './Sunrise/Sunrise';

@@ -28,10 +28,10 @@ const WeatherIcon = (props) => {
                 return <img src="./assets/img/animated/mist.svg" alt="Mist"/>;
                 
             default:
-                return <span>icon not found</span>
+                return <span>IMAGE NOT FOUND</span>
         };
     };
-
+    
     return ( 
         <div className='container-weather-icon'>
             <div className='content-icon'>
