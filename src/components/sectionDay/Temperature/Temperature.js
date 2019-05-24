@@ -18,7 +18,7 @@ class Temperature extends React.Component {
         return ( 
             <div className='container-temp'>
                 <div className='content-temp'>
-                    <span id='temp'>{this.props.temp}°</span>
+                    <span id='temp'>{Math.round(this.props.temp)}°</span>
                     <div className='content-button-temp'>
                         <span>{this.props.tempUnits ? 'C': 'F'}</span>
                         <button onClick={this.ChangeUnits}>{this.props.tempUnits ? 'F': 'C'}</button>

@@ -32,6 +32,11 @@
         }
     }
 }
+.search-error-info {
+    &::placeholder {
+        color: #f53b57!important;
+    }
+}
 
 @media screen and (max-width: 480px) {
     .container-search {

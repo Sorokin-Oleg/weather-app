@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { currentDayFetchData } from './../../actions/actions';
+import { connect, dispatch } from 'react-redux';
+import { currentDayFetchData} from './../../actions/actions';
+import { API_KEY } from './../../const/apiKey';
+
 import Search from './Search/Search';
 import Sunrise from './Sunrise/Sunrise';
 import Sunset from './Sunset/Sunset';
@@ -12,21 +14,38 @@ import WeatherIcon from './WeatherIcon/WeatherIcon';
 import WeatherDescription from './WeatherDescription/WeatherDescription';
 import CurrentDate from './CurrentDate/CurrentDate';
 import WeatherMain from './WeatherMain/WeatherMain';
+
 import './SectionDay.scss';
-import { currentDayData } from './../../reduser/reduser';
 
+class SectionDay extends React.Component {
+    constructor(props) {
+        super(props);
+        this.updateData = this.updateData.bind(this);
+    };
 
-class SectionDay extends React.Component { 
+    updateData() {
+        const city = 'q=' + this.props.city;
+        const lang = this.props.lang ? '&lang=en' : '&lang=ru';
+        const units = this.props.unit ? '&units=metric' : '&units=imperial';        
+        const URL = 'https://api.openweathermap.org/data/2.5/weather?' + city + lang + units + API_KEY;
 
-    componentDidMount() {
-        this.props.fetchData('https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&units=metric&appid=33c970bfa5f1615719f1302f43d324db');
-    };    
+        this.props.fetchData(URL);
+    };
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.lang !== this.props.lang ||
+            prevProps.unit !== this.props.unit ||
+            prevProps.city !== this.props.city) {
+            this.updateData();
+        };
+    };
 
     render() {
         return (            
             <section className='container-section-day'>
                 <Search 
                     lang={this.props.lang}
+                    error={this.props.error}
                 />
                 <Sunrise
                     lang={this.props.lang}
@@ -40,7 +59,7 @@ class SectionDay extends React.Component {
                     sunset={this.props.sunset}
                 />
                 <City
-                    city={this.props.city}                    
+                    currentCity={this.props.currentCity}                    
                 />
                 <Temperature
                     tempUnits={this.props.unit}
@@ -78,7 +97,7 @@ const mapStateToProps = (state) => {
         lang: state.switchLang,
         unit: state.changeUnit,
         error: state.currentDayHasErrored,
-        city: state.currentDayData.city,
+        currentCity: state.currentDayData.currentCity,
         temp: state.currentDayData.temp,
         description: state.currentDayData.description,
         clouds: state.currentDayData.clouds,
@@ -88,13 +107,14 @@ const mapStateToProps = (state) => {
         sunrise: state.currentDayData.sunrise,
         sunset: state.currentDayData.sunset,
         currentDate: state.currentDayData.currentDate,
-        icon: state.currentDayData.icon
+        icon: state.currentDayData.icon,
+        city: state.getCityName
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(currentDayFetchData(url))
+        fetchData: (url) => dispatch(currentDayFetchData(url))      
     };
 };
 

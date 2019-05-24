@@ -9,14 +9,14 @@ const Sunset = (props) => {
 
     return (
         <div className='container-sunset'>
-            <span>{checkZero(date.getHours() + ':' + checkZero(date.getMinutes()))}</span>
+            <span>{checkZero(date.getHours()) + ':' + checkZero(date.getMinutes())}</span>
             <span>{description}</span>
         </div>
     );
 };
 
-Sunset.propsDefault = {
-    sunset: '0'
+Sunset.defaultProps = {
+    sunset:'0'
 };
 
 export default Sunset;

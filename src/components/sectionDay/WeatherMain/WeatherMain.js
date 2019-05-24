@@ -20,19 +20,19 @@ const WeatherMain = (props) => {
         <div className='container-weather-main'>
             <div>
                 <span>{description.clouds}</span>
-                <span>{props.clouds} %</span>
+                <span>{Math.round(props.clouds)} %</span>
             </div>
             <div>
                 <span>{description.wind}</span>
-                <span>{props.wind} {windUnits}</span>
+                <span>{Math.round(props.wind)} {windUnits}</span>
             </div>
             <div>
                 <span>{description.hymidity}</span>
-                <span>{props.humidity} %</span>
+                <span>{Math.round(props.humidity)} %</span>
             </div>
             <div>
                 <span>{description.pressure}</span>
-                <span>{props.pressure} {props.lang ? 'hPa' : 'гПа'}</span>
+                <span>{Math.round(props.pressure)} {props.lang ? 'hPa' : 'гПа'}</span>
             </div>
         </div>
     );

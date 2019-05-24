@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './City.scss';
 
 const City = (props) => {
-    const strCity = '' + props.city;
+    const strCity = '' + props.currentCity;
     const renderCity = strCity.toUpperCase();
 
     return ( 
@@ -13,7 +13,7 @@ const City = (props) => {
 };
 
 City.defaultProps = {
-    city: 'Minsk'
+    currentCity: 'City'
 };
 
 export default City;

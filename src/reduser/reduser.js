@@ -38,13 +38,11 @@ export const currentDayIsLoading = (state = false, action) => {
     };
 };
 
-let STATE_CURRENT_DAY_DATA = {};
-
 export const currentDayData = (state = {}, action) => {
     switch (action.type) {
         case 'CURRENT_DAY_FETCH_DATA_SUCCESS':
-            STATE_CURRENT_DAY_DATA = {
-                city: action.data.name,
+            state = {
+                currentCity: action.data.name,
                 temp: action.data.main.temp,
                 description: action.data.weather[0].description,
                 clouds: action.data.clouds.all,
@@ -56,7 +54,17 @@ export const currentDayData = (state = {}, action) => {
                 currentDate: action.data.dt,
                 icon: action.data.weather[0].icon          
             };                
-            return STATE_CURRENT_DAY_DATA;    
+            return state;    
+
+        default:
+            return state;
+    };
+};
+
+export const getCityName = (state = '', action) => {
+    switch (action.type) {
+        case 'GET_CITY_NAME':
+            return action.cityName;
 
         default:
             return state;

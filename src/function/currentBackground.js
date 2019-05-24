@@ -6,10 +6,10 @@ export const currentBackground = (props) => {
         case '01n':
             return {backgroundImage: 'linear-gradient(#233D4F, #5E6B84)'};
         case '02d':
-        case '02n':
-            return {backgroundImage: 'linear-gradient(#80A8CF, #C1C2D9)'};
+        case '02n':            
         case '03d':
         case '03n':
+            return {backgroundImage: 'linear-gradient(#80A8CF, #C1C2D9)'};
         case '04d':
         case '04n':
             return {backgroundImage: 'linear-gradient(#5580B1, #B3AAC2)'};

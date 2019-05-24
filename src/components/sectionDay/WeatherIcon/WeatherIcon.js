@@ -10,10 +10,10 @@ const WeatherIcon = (props) => {
             case '01n':
                 return <img src="./assets/img/animated/night.svg" alt="Clear sky"/>;
             case '02d':
-            case '02n':
-                return <img src="./assets/img/animated/cloudy-sun.svg" alt="Few clouds: 11-25%"/>;
+            case '02n':                
             case '03d':
             case '03n':
+                return <img src="./assets/img/animated/cloudy-sun.svg" alt="Few clouds: 40%"/>;
             case '04d':
             case '04n':
                 return <img src="./assets/img/animated/cloudy.svg" alt="Overcast clouds: 85-100%"/>;
