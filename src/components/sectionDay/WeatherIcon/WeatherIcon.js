@@ -18,13 +18,18 @@ const WeatherIcon = (props) => {
             case '04n':
                 return <img src="./assets/img/animated/cloudy.svg" alt="Overcast clouds: 85-100%"/>;
             case '09d':
+            case '09n':
             case '10d':
+            case '10n':
                 return <img src="./assets/img/animated/rainy.svg" alt="Rain"/>;
-            case '11d':             
+            case '11d':
+            case '11n':              
                 return <img src="./assets/img/animated/thunder.svg" alt="Thunderstorm"/>;
             case '13d':
+            case '13n':
                 return <img src="./assets/img/animated/snowy.svg" alt="Snow"/>;
-            case '50d': 
+            case '50d':
+            case '50n': 
                 return <img src="./assets/img/animated/mist.svg" alt="Mist"/>;
                 
             default:

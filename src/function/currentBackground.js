@@ -14,13 +14,18 @@ export const currentBackground = (props) => {
         case '04n':
             return {backgroundImage: 'linear-gradient(#5580B1, #B3AAC2)'};
         case '09d':
+        case '09n':
         case '10d':
+        case '10n':
             return {backgroundImage: 'linear-gradient(#31516D, #7596C5)'};
-        case '11d':             
+        case '11d':
+        case '11n':             
             return {backgroundImage: 'linear-gradient(#253948, #5F7C9C)'};
         case '13d':
+        case '13n':
             return {backgroundImage: 'linear-gradient(#4773B2, #D4BBD1)'};
-        case '50d': 
+        case '50d':
+        case '50n': 
             return {backgroundImage: 'linear-gradient(#5B6063, #878D93)'};
             
         default:
