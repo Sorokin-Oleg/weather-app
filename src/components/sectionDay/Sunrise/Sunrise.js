@@ -16,7 +16,8 @@ const Sunrise = (props) => {
 };
 
 Sunrise.defaultProps = {
-    sunrise: '0'
+    sunrise: 0,
+    timezone: 0
 };
 
 export default Sunrise;
