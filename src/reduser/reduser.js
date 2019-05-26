@@ -52,7 +52,8 @@ export const currentDayData = (state = {}, action) => {
                 sunrise: action.data.sys.sunrise,
                 sunset: action.data.sys.sunset,
                 currentDate: action.data.dt,
-                icon: action.data.weather[0].icon          
+                icon: action.data.weather[0].icon,
+                timezone: action.data.timezone         
             };                
             return state;    
 

@@ -52,6 +52,7 @@ class SectionDay extends React.Component {
                 <Sunrise
                     lang={this.props.lang}
                     sunrise={this.props.sunrise}
+                    timezone={this.props.timezone}
                 />
                 <LangButton
                     lang={this.props.lang}
@@ -59,6 +60,7 @@ class SectionDay extends React.Component {
                 <Sunset
                     lang={this.props.lang}
                     sunset={this.props.sunset}
+                    timezone={this.props.timezone}
                 />
                 <City
                     currentCity={this.props.currentCity}                    
@@ -76,6 +78,7 @@ class SectionDay extends React.Component {
                 <CurrentDate
                     currentDate={this.props.currentDate}
                     lang={this.props.lang}
+                    timezone={this.props.timezone}
                 />
                 <WeatherMain
                     lang={this.props.lang}
@@ -110,7 +113,8 @@ const mapStateToProps = (state) => {
         sunset: state.currentDayData.sunset,
         currentDate: state.currentDayData.currentDate,
         icon: state.currentDayData.icon,
-        city: state.getCityName
+        city: state.getCityName,
+        timezone: state.currentDayData.timezone
     };
 };
 

@@ -4,11 +4,12 @@ import './Sunrise.scss';
 
 const Sunrise = (props) => {
     const description = props.lang ? 'Sunrise time' : 'Время восхода';
-    const date = new Date(props.sunrise * 1000);
+    const calcTime = props.sunrise + props.timezone;
+    const date = new Date(calcTime * 1000);
 
     return (
         <div className='container-sunrise'>
-            <span>{checkZero(date.getHours()) + ':' + checkZero(date.getMinutes())}</span>
+            <span>{checkZero(date.getUTCHours()) + ':' + checkZero(date.getUTCMinutes())}</span>
             <span>{description}</span>
         </div>
     );

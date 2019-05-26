@@ -5,11 +5,12 @@ import './Sunset.scss';
 const Sunset = (props) => {
 
     const description = props.lang ? 'Sunset time' : 'Время заката';
-    const date = new Date(props.sunset * 1000);
+    const calcTime = props.sunset + props.timezone;
+    const date = new Date(calcTime * 1000);
 
     return (
         <div className='container-sunset'>
-            <span>{checkZero(date.getHours()) + ':' + checkZero(date.getMinutes())}</span>
+            <span>{checkZero(date.getUTCHours()) + ':' + checkZero(date.getUTCMinutes())}</span>
             <span>{description}</span>
         </div>
     );
