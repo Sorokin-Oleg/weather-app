@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { connect, dispatch } from 'react-redux';
+import { connect} from 'react-redux';
 import { getCityName } from './../../../actions/actions';
-import './Search.scss';
 
+import './Search.scss';
 
 class Search extends React.Component {    
     constructor(props) {
@@ -11,15 +11,22 @@ class Search extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSend = this.handleSend.bind(this);
         this.enterKeySend = this.enterKeySend.bind(this);
-    };
-    
+    };    
+
+    /**
+     * Store the user-entered value in the state value
+     */
     handleChange() {
         this.setState({value: event.target.value});        
     };
 
+    /**
+     * We save the value of the state value in the local storage, and also transfer the value to the reducer
+     * Reset the state value
+     */
     handleSend() {
-        localStorage.setItem('city', this.state.value);
-        this.props.dispatch(getCityName(this.state.value));
+        localStorage.setItem('city', 'q=' + this.state.value);
+        this.props.dispatch(getCityName('q=' + this.state.value));
         this.setState({value:''});
     };
 
