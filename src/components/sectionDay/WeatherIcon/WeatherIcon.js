@@ -30,7 +30,7 @@ const WeatherIcon = (props) => {
                 return <img src="./assets/img/animated/snowy.svg" alt="Snow"/>;
             case '50d':
             case '50n': 
-                return <img src="./assets/img/animated/mist.svg" alt="Mist"/>;
+                return <img src="./assets/img/animated/cloudy.svg" alt="Mist"/>;
                 
             default:
                 return <span>IMAGE NOT FOUND</span>

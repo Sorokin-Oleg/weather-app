@@ -18,6 +18,16 @@ export const changeUnit = (state = true, action) => {
     };
 };
 
+export const getCityName = (state = '', action) => {
+    switch (action.type) {
+        case 'GET_CITY_NAME':
+            return action.cityName;
+
+        default:
+            return state;
+    };
+};
+
 export const currentDayHasErrored = (state = false, action) => {
     switch (action.type) {
         case 'CURRENT_DAY_HAS_ERRORED':
@@ -62,10 +72,44 @@ export const currentDayData = (state = {}, action) => {
     };
 };
 
-export const getCityName = (state = '', action) => {
+export const weekForecastHasErrored = (state = false, action) => {
     switch (action.type) {
-        case 'GET_CITY_NAME':
-            return action.cityName;
+        case 'WEEK_FORECAST_HAS_ERRORED':
+            return action.hasErrored;
+
+    default:
+        return state;
+    };
+};
+
+export const weekForecastIsLoading = (state = false, action) => {
+    switch (action.type) {
+        case 'WEEK_FORECAST_IS_LOADING':
+            return action.isLoading;
+
+        default:
+            return state;
+    };
+};
+
+export const weekForecastData = (state = {}, action) => {
+    switch (action.type) {
+        case 'WEEK_FORECAST_FETCH_DATA_SUCCESS':
+            // state = {
+            //     // currentCity: action.data.name,
+            //     // temp: action.data.main.temp,
+            //     // description: action.data.weather[0].description,
+            //     // clouds: action.data.clouds.all,
+            //     // wind: action.data.wind.speed,
+            //     // humidity: action.data.main.humidity,
+            //     // pressure: action.data.main.pressure,
+            //     // sunrise: action.data.sys.sunrise,
+            //     // sunset: action.data.sys.sunset,
+            //     // currentDate: action.data.dt,
+            //     // icon: action.data.weather[0].icon,
+            //     // timezone: action.data.timezone         
+            // };                
+            return action.data;    
 
         default:
             return state;

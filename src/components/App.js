@@ -11,6 +11,7 @@ import './App.scss'
 class App extends React.Component {  
     constructor(props) {
         super(props);
+        
         this.firstCityState = this.firstCityState.bind(this);
         this.geolocationSuccess = this.geolocationSuccess.bind(this); 
         this.geolocationError = this.geolocationError.bind(this);                
