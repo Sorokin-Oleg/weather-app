@@ -21,11 +21,10 @@ class Search extends React.Component {
     };
 
     /**
-     * We save the value of the state value in the local storage, and also transfer the value to the reducer
+     * Transfer the value to the reducer
      * Reset the state value
      */
-    handleSend() {
-        localStorage.setItem('city', 'q=' + this.state.value);
+    handleSend() {        
         this.props.dispatch(getCityName('q=' + this.state.value));
         this.setState({value:''});
     };

@@ -13,7 +13,7 @@ class App extends React.Component {
         super(props);
         this.firstCityState = this.firstCityState.bind(this);
         this.geolocationSuccess = this.geolocationSuccess.bind(this); 
-        this.geolocationError = this.geolocationError.bind(this);     
+        this.geolocationError = this.geolocationError.bind(this);                
     };
 
     /**
@@ -69,8 +69,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        icon: state.currentDayData.icon,
-        error: state.currentDayHasErrored
+        icon: state.currentDayData.icon
     };
 };
 
