@@ -19,7 +19,8 @@ const CurrentDate = (props) => {
 };
 
 CurrentDate.defaultProps = {
-    currentDate: '0'
+    currentDate: 0,
+    timezone: 0
 };
 
 export default CurrentDate;
