@@ -21,11 +21,13 @@ class Search extends React.Component {
     };
 
     /**
-     * Transfer the value to the reducer
-     * Reset the state value
+     * Remove the extra spaces entered by the user
+     * Transfer data to the reducer
+     * Zero input state
      */
-    handleSend() {        
-        this.props.dispatch(getCityName('q=' + this.state.value));
+    handleSend() {
+        let trimAfterValue = this.state.value.trim();       
+        this.props.dispatch(getCityName('q=' + trimAfterValue));
         this.setState({value:''});
     };
 
