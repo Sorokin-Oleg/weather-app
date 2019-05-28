@@ -18,6 +18,9 @@ export const changeUnit = (bool) => {
     };
 };
 
+/**
+ * @param {Name of the city entered by the user} name 
+ */
 export const getCityName = (name) => {
     return {
         type: 'GET_CITY_NAME',

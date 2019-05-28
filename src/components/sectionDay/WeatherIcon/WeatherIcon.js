@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './WeatherIcon.scss';
 
 const WeatherIcon = (props) => {
-
     const currentIcon = () => {
         switch (props.icon) {
             case '01d':

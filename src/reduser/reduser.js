@@ -92,24 +92,10 @@ export const weekForecastIsLoading = (state = false, action) => {
     };
 };
 
-export const weekForecastData = (state = {}, action) => {
+export const weekForecastData = (state = [], action) => {
     switch (action.type) {
-        case 'WEEK_FORECAST_FETCH_DATA_SUCCESS':
-            // state = {
-            //     // currentCity: action.data.name,
-            //     // temp: action.data.main.temp,
-            //     // description: action.data.weather[0].description,
-            //     // clouds: action.data.clouds.all,
-            //     // wind: action.data.wind.speed,
-            //     // humidity: action.data.main.humidity,
-            //     // pressure: action.data.main.pressure,
-            //     // sunrise: action.data.sys.sunrise,
-            //     // sunset: action.data.sys.sunset,
-            //     // currentDate: action.data.dt,
-            //     // icon: action.data.weather[0].icon,
-            //     // timezone: action.data.timezone         
-            // };                
-            return action.data;    
+        case 'WEEK_FORECAST_FETCH_DATA_SUCCESS': 
+            return  action.data.list;    
 
         default:
             return state;

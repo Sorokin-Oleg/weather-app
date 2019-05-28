@@ -3,21 +3,19 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { API_KEY } from './../../const/apiKey';
 import { weekForecastFetchData } from './../../actions/actions';
-
 import DayForecast from './DayForecast/DayForecast';
 
 import './SectionWeek.scss';
-
-
 
 class SectionWeek extends React.Component {
     constructor(props) {
         super(props);
 
         this.updateData = this.updateData.bind(this);
+        this.filterData = this.filterData.bind(this);
     };
 
-        /**
+    /**
      * Creating a URL to query the weather API server
      */
     updateData() {
@@ -29,23 +27,44 @@ class SectionWeek extends React.Component {
         this.props.fetchData(URL);
     };
 
+    /**
+     * Filter API Data
+     */
+    filterData() {
+        return (
+            this.props.weekArray.filter(item => {            
+                const date = new Date((this.props.timezone + item.dt) * 1000);
+                console.log(date.getUTCHours());               
+                return date.getUTCHours() >= 14 && date.getUTCHours() <= 16 ;                 
+            })
+        );
+    };
+
     componentDidUpdate (prevProps) {
         if (prevProps.lang !== this.props.lang ||
             prevProps.unit !== this.props.unit ||
             prevProps.city !== this.props.city) {
-            this.updateData();         
+            this.updateData();                          
         };
     };
 
-    render() {
-        console.log(this.props.state);
+    render() {  
+        const element = this.filterData().map((item,index) => {
+            return <DayForecast
+                key={index}          
+                tempUnits={this.props.unit}
+                date={item.dt}
+                temp={item.main.temp}
+                description={item.weather[0].description}
+                icon={item.weather[0].icon}
+                timezone={this.props.timezone}
+                lang={this.props.lang}                 
+            />
+        });
+
         return(
             <section className='container-section-week'>
-                <DayForecast  tempUnits={this.props.unit}/>
-                <DayForecast  tempUnits={this.props.unit}/>
-                <DayForecast  tempUnits={this.props.unit}/>
-                <DayForecast  tempUnits={this.props.unit}/>
-                <DayForecast  tempUnits={this.props.unit}/>
+                {element}
             </section>
         );
     };
@@ -56,7 +75,8 @@ const mapStateToProps = (state) => {
         lang: state.switchLang,
         unit: state.changeUnit,
         city: state.getCityName,
-        state        
+        weekArray: state.weekForecastData,
+        timezone: state.currentDayData.timezone
     };
 };
 
@@ -67,7 +87,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 SectionWeek.propTypes = {
-    fetchData: PropTypes.func.isRequired
+    fetchData: PropTypes.func.isRequired,
+    weekArray: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps) (SectionWeek);

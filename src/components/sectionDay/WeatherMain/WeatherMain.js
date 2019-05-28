@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './WeatherMain.scss';
 
 const WeatherMain = (props) => {
-
     const description = {
         clouds: props.lang ? 'Clouds': 'Облачность',
         wind: props.lang ? 'Wind' : 'Ветер',

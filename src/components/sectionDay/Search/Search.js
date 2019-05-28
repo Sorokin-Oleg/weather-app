@@ -26,8 +26,7 @@ class Search extends React.Component {
      * Zero input state
      */
     handleSend() {
-        let trimAfterValue = this.state.value.trim();       
-        this.props.dispatch(getCityName('q=' + trimAfterValue));
+        this.props.dispatch(getCityName('q=' + this.state.value.trim()));
         this.setState({value:''});
     };
 
