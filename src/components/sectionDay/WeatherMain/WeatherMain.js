@@ -5,7 +5,7 @@ const WeatherMain = (props) => {
     const description = {
         clouds: props.lang ? 'Clouds': 'Облачность',
         wind: props.lang ? 'Wind' : 'Ветер',
-        hymidity: props.lang ? 'Hymidity' : 'Влажность',
+        humidity: props.lang ? 'Humidity' : 'Влажность',
         pressure: props.lang ? 'Pressure' : 'Давление'
     };
 
@@ -26,7 +26,7 @@ const WeatherMain = (props) => {
                 <span>{Math.round(props.wind)} {windUnits}</span>
             </div>
             <div>
-                <span>{description.hymidity}</span>
+                <span>{description.humidity}</span>
                 <span>{Math.round(props.humidity)} %</span>
             </div>
             <div>
