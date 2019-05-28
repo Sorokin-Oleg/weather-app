@@ -18,6 +18,16 @@ export const changeUnit = (state = true, action) => {
     };
 };
 
+export const getCityName = (state = '', action) => {
+    switch (action.type) {
+        case 'GET_CITY_NAME':
+            return action.cityName;
+
+        default:
+            return state;
+    };
+};
+
 export const currentDayHasErrored = (state = false, action) => {
     switch (action.type) {
         case 'CURRENT_DAY_HAS_ERRORED':
@@ -62,10 +72,30 @@ export const currentDayData = (state = {}, action) => {
     };
 };
 
-export const getCityName = (state = '', action) => {
+export const weekForecastHasErrored = (state = false, action) => {
     switch (action.type) {
-        case 'GET_CITY_NAME':
-            return action.cityName;
+        case 'WEEK_FORECAST_HAS_ERRORED':
+            return action.hasErrored;
+
+    default:
+        return state;
+    };
+};
+
+export const weekForecastIsLoading = (state = false, action) => {
+    switch (action.type) {
+        case 'WEEK_FORECAST_IS_LOADING':
+            return action.isLoading;
+
+        default:
+            return state;
+    };
+};
+
+export const weekForecastData = (state = [], action) => {
+    switch (action.type) {
+        case 'WEEK_FORECAST_FETCH_DATA_SUCCESS': 
+            return  action.data.list;    
 
         default:
             return state;

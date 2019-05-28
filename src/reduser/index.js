@@ -4,7 +4,10 @@ import { switchLang,
          currentDayHasErrored,
          currentDayIsLoading,
          currentDayData,
-         getCityName } from './reduser';
+         getCityName,
+         weekForecastHasErrored,
+         weekForecastIsLoading,
+         weekForecastData } from './reduser';
 
 export default combineReducers({
     switchLang,
@@ -12,5 +15,8 @@ export default combineReducers({
     currentDayHasErrored,
     currentDayIsLoading,
     currentDayData,
-    getCityName
+    getCityName,
+    weekForecastHasErrored,
+    weekForecastIsLoading,
+    weekForecastData
 });

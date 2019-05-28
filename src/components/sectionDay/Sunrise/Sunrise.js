@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { checkZero } from './../../../function/checkZero';
+
 import './Sunrise.scss';
 
 const Sunrise = (props) => {
     const description = props.lang ? 'Sunrise time' : 'Время восхода';
-    const calcTime = props.sunrise + props.timezone;
-    const date = new Date(calcTime * 1000);
+    const date = new Date((props.sunrise + props.timezone) * 1000);
 
     return (
         <div className='container-sunrise'>

@@ -23,7 +23,7 @@ export const currentBackground = (props) => {
             return {backgroundImage: 'linear-gradient(#253948, #5F7C9C)'};
         case '13d':
         case '13n':
-            return {backgroundImage: 'linear-gradient(#4773B2, #D4BBD1)'};
+            return {backgroundImage: 'linear-gradient(#4773B2, #7596C5)'};
         case '50d':
         case '50n': 
             return {backgroundImage: 'linear-gradient(#5B6063, #878D93)'};
