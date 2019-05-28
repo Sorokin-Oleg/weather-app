@@ -33,8 +33,7 @@ class SectionWeek extends React.Component {
     filterData() {
         return (
             this.props.weekArray.filter(item => {            
-                const date = new Date((this.props.timezone + item.dt) * 1000);
-                console.log(date.getUTCHours());               
+                const date = new Date((this.props.timezone + item.dt) * 1000);          
                 return date.getUTCHours() >= 14 && date.getUTCHours() <= 16 ;                 
             })
         );

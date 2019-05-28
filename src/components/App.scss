@@ -16,6 +16,13 @@
     }
 }
 
+@media (max-width: 768px) and (orientation: landscape) {
+    .container-app {
+        min-height: 200%;
+        
+    }
+}
+
 @media screen and (max-width: 480px) {
     .container-app {
         min-height: 50rem;
