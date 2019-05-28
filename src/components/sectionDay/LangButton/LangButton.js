@@ -15,6 +15,7 @@ class LangButton extends React.Component {
      */
     changelang() {
         this.props.dispatch(switchLang(!this.props.lang));
+        localStorage.setItem('lang', !this.props.lang);
     };
 
     render () {

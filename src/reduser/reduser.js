@@ -1,4 +1,11 @@
-export const switchLang = (state = true, action) => {    
+const switchLangState = () => {
+    if (localStorage.getItem('lang') === null) {
+        return true
+    };
+    return JSON.parse(localStorage.getItem('lang'))
+};
+
+export const switchLang = (state = switchLangState(), action) => {    
     switch (action.type) {        
         case 'SWICH_LANG':
             return action.switchLang;
@@ -8,7 +15,14 @@ export const switchLang = (state = true, action) => {
     };    
 };
 
-export const changeUnit = (state = true, action) => {
+const changeUnitState = () => {
+    if (localStorage.getItem('unit') === null) {
+        return true
+    };
+    return JSON.parse(localStorage.getItem('unit'))
+};
+
+export const changeUnit = (state = changeUnitState(), action) => {
     switch (action.type) {
         case 'CHANGE_UNIT':
             return action.changeUnit;

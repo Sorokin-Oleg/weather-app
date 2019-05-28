@@ -12,6 +12,7 @@ class Temperature extends React.Component {
 
     сhangeUnits() {
         this.props.dispatch(changeUnit(!this.props.tempUnits));
+        localStorage.setItem('unit', !this.props.tempUnits);
     };
 
     render () {
