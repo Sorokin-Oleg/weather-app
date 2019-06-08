@@ -17,24 +17,18 @@ import WeatherMain from './WeatherMain/WeatherMain';
 
 import './SectionDay.scss';
 
-class SectionDay extends React.Component {
-    constructor(props) {
-        super(props);
-        this.updateData = this.updateData.bind(this); 
-        this.setLocalStorgateCity = this.setLocalStorgateCity.bind(this);                 
-    };
-
+class SectionDay extends Component {
     /**
      * If the request to the API is successful, we write the name of the city in the local storage
      */
-    setLocalStorgateCity() {
+    setLocalStorgateCity = () => {
         localStorage.setItem('city', 'q=' + this.props.currentCity);
     };
 
     /**
      * Creating a URL to query the weather API server
      */
-    updateData() {
+    updateData = () => {
         const city = this.props.city;
         const lang = this.props.lang ? '&lang=en' : '&lang=ru';
         const units = this.props.unit ? '&units=metric' : '&units=imperial';        

@@ -1,22 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect} from 'react-redux';
 import { getCityName } from './../../../actions/actions';
 
 import './Search.scss';
 
-class Search extends React.Component {    
-    constructor(props) {
-        super(props);
-        this.state = {value: ''};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSend = this.handleSend.bind(this);
-        this.enterKeySend = this.enterKeySend.bind(this);
-    };    
-
+class Search extends Component {    
+    state = {value: ''}
     /**
      * Store the user-entered value in the state value
      */
-    handleChange() {
+    handleChange = () => {
         this.setState({value: event.target.value});        
     };
 
@@ -25,12 +18,12 @@ class Search extends React.Component {
      * Transfer data to the reducer
      * Zero input state
      */
-    handleSend() {
+    handleSend = () => {
         this.props.dispatch(getCityName('q=' + this.state.value.trim()));
         this.setState({value:''});
     };
 
-    enterKeySend(event) {
+    enterKeySend = (event) => {
         if (event.keyCode === 13) {
             this.handleSend();
         };

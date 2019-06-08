@@ -1,16 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changeUnit } from './../../../actions/actions';
 
 import './Temperature.scss';
 
-class Temperature extends React.Component {
-    constructor(props) {
-        super(props);
-        this.сhangeUnits = this.сhangeUnits.bind(this);
-    };
-
-    сhangeUnits() {
+class Temperature extends Component {
+    сhangeUnits = () => {
         this.props.dispatch(changeUnit(!this.props.tempUnits));
         localStorage.setItem('unit', !this.props.tempUnits);
     };

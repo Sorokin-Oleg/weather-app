@@ -7,18 +7,11 @@ import DayForecast from './DayForecast/DayForecast';
 
 import './SectionWeek.scss';
 
-class SectionWeek extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.updateData = this.updateData.bind(this);
-        this.filterData = this.filterData.bind(this);
-    };
-
+class SectionWeek extends Component {
     /**
      * Creating a URL to query the weather API server
      */
-    updateData() {
+    updateData = () => {
         const city = this.props.city;
         const lang = this.props.lang ? '&lang=en' : '&lang=ru';
         const units = this.props.unit ? '&units=metric' : '&units=imperial';        
@@ -30,14 +23,12 @@ class SectionWeek extends React.Component {
     /**
      * Filter API Data
      */
-    filterData() {
-        return (
-            this.props.weekArray.filter(item => {            
-                const date = new Date((this.props.timezone + item.dt) * 1000);          
-                return date.getUTCHours() >= 14 && date.getUTCHours() <= 16 ;                 
-            })
-        );
-    };
+    filterData = () => (
+        this.props.weekArray.filter(item => {            
+            const date = new Date((this.props.timezone + item.dt) * 1000);          
+            return date.getUTCHours() >= 14 && date.getUTCHours() <= 16 ;                 
+        })
+    );
 
     componentDidUpdate (prevProps) {
         if (prevProps.lang !== this.props.lang ||
@@ -48,8 +39,8 @@ class SectionWeek extends React.Component {
     };
 
     render() {  
-        const element = this.filterData().map((item,index) => {
-            return <DayForecast
+        const element = this.filterData().map((item,index) => (
+            <DayForecast
                 key={index}          
                 tempUnits={this.props.unit}
                 date={item.dt}
@@ -59,7 +50,7 @@ class SectionWeek extends React.Component {
                 timezone={this.props.timezone}
                 lang={this.props.lang}                 
             />
-        });
+        ));
 
         return(
             <section className='container-section-week'>

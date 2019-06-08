@@ -1,19 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { switchLang } from './../../../actions/actions';
 
 import './LangButton.scss';
 
-class LangButton extends React.Component {
-    constructor(props) {
-        super(props);
-        this.changelang = this.changelang.bind(this);
-    };
-
+class LangButton extends Component {
     /**
      * The method changes the current value of props.lang to reverse
      */
-    changelang() {
+    changelang = () => {
         this.props.dispatch(switchLang(!this.props.lang));
         localStorage.setItem('lang', !this.props.lang);
     };
