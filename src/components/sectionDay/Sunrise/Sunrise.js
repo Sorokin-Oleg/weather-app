@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { checkZero } from './../../../function/checkZero';
 
 import './Sunrise.scss';
 
-const Sunrise = (props) => {
-    const description = props.lang ? 'Sunrise time' : 'Время восхода';
-    const date = new Date((props.sunrise + props.timezone) * 1000);
+const Sunrise = ({sunrise, timezone, lang}) => {
+    const description = lang ? 'Sunrise time' : 'Время восхода';
+    const date = new Date((sunrise + timezone) * 1000);
 
-    return (
+    return (    
         <div className='container-sunrise'>
             <span>{checkZero(date.getUTCHours()) + ':' + checkZero(date.getUTCMinutes())}</span>
             <span>{description}</span>

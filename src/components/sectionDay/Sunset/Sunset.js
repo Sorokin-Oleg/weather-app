@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { checkZero } from './../../../function/checkZero';
 
 import './Sunset.scss';
 
-const Sunset = (props) => {
-    const description = props.lang ? 'Sunset time' : 'Время заката';
-    const date = new Date((props.sunset + props.timezone) * 1000);
+const Sunset = ({lang, sunset, timezone}) => {
+    const description = lang ? 'Sunset time' : 'Время заката';
+    const date = new Date((sunset + timezone) * 1000);
 
     return (
         <div className='container-sunset'>

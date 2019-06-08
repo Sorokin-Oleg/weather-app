@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './WeatherIcon.scss';
 
-const WeatherIcon = (props) => {
+const WeatherIcon = ({icon}) => {
     const currentIcon = () => {
-        switch (props.icon) {
+        switch (icon) {
             case '01d':
                 return <img src="./assets/img/animated/day.svg" alt="Clear sky"/>;
             case '01n':

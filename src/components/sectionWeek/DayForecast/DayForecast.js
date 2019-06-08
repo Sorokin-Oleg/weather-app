@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { MOUNTHS } from './../../../const/mounths';
 import { WEEK } from './../../../const/week';
 import { checkZero } from './../../../function/checkZero';
 
 import './DayForecast.scss';
 
-const DayForecast = (props) => {
+const DayForecast = ({icon, tempUnits, timezone, description, lang, temp, date}) => {
     const currentIcon = () => {
-        switch (props.icon) {
+        switch (icon) {
             case '01d':
                 return <img src="./assets/img/animated/day.svg" alt="Clear sky"/>;
             case '01n':
@@ -39,20 +39,20 @@ const DayForecast = (props) => {
                 return <span>IMAGE NOT FOUND</span>
         };
     };
-    const units = props.tempUnits ? '°C': '°F';
-    const description = props.description[0].toUpperCase() + props.description.slice(1);
-    const date = new Date((props.date + props.timezone) * 1000);
-    const day = props.lang ? WEEK.en[date.getUTCDay()] + ', ' + checkZero(date.getUTCDate() + ' ' + MOUNTHS.en[date.getUTCMonth()]):
-                             WEEK.ru[date.getUTCDay()] + ', ' + checkZero(date.getUTCDate() + ' ' + MOUNTHS.ru[date.getUTCMonth()]);
+    const units = tempUnits ? '°C': '°F';
+    const weatherDescription = description[0].toUpperCase() + description.slice(1);
+    const currentDate = new Date((date + timezone) * 1000);
+    const day = lang ? WEEK.en[currentDate.getUTCDay()] + ', ' + checkZero(currentDate.getUTCDate() + ' ' + MOUNTHS.en[currentDate.getUTCMonth()]):
+                       WEEK.ru[currentDate.getUTCDay()] + ', ' + checkZero(currentDate.getUTCDate() + ' ' + MOUNTHS.ru[currentDate.getUTCMonth()]);
                                      
     return ( 
         <div className='container-day-forecast'>
             <span>{day}</span>
             {currentIcon()}
             <div>
-                <span className='day-temp'>{Math.round(props.temp) + ' ' + units}</span>
+                <span className='day-temp'>{Math.round(temp) + ' ' + units}</span>
             </div>
-            <span>{description}</span>
+            <span>{weatherDescription}</span>
         </div>
     );
 };

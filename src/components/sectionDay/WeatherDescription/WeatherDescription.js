@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './WeatherDescription.scss';
 
-const WeatherDescription = (props) => {
-    return ( 
-        <div className='container-weather-description'>
-            <span>{props.description.toUpperCase()}</span>
-        </div>
-    );
-};
+const WeatherDescription = ({description}) => (
+    <div className='container-weather-description'>
+        <span>{description.toUpperCase()}</span>
+    </div>
+);
 
 WeatherDescription.defaultProps = {
     description: 'clouds'

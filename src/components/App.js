@@ -8,20 +8,11 @@ import SectionWeek from './sectionWeek/SectionWeek';
 
 import './App.scss'
 
-class App extends React.Component {  
-    constructor(props) {
-        super(props);
-        
-        this.firstCityState = this.firstCityState.bind(this);
-        this.geolocationSuccess = this.geolocationSuccess.bind(this); 
-        this.geolocationError = this.geolocationError.bind(this);                
-    };
-
+class App extends Component {  
     /**
      * Actions performed in case of a failed geodata request
-     * @param {Error name(code)} error 
-     */
-    geolocationError(error) {
+    */
+    geolocationError = (error) => {
         switch(error.code) {
             case error.PERMISSION_DENIED:
             case error.POSITION_UNAVAILABLE:
@@ -32,10 +23,10 @@ class App extends React.Component {
         };
     };
 
-    geolocationSuccess(position) {
+    geolocationSuccess = (position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-        this.props.dispatch(getCityName('lat=' + lat + '&lon=' + lon));
+        this.props.dispatch(getCityName(`lat=${lat}&lon=${lon}`));
     };
 
     /**
@@ -44,8 +35,8 @@ class App extends React.Component {
      * With the consent of the user, the received geodata is sent to the reducer,
      * in case of disagreement, or if there is a geodata error, we send the default value to the reducer.
      */
-    firstCityState() {   
-        if (localStorage.getItem('city') === null || localStorage.getItem('city').length === 2) {
+    firstCityState = () => {   
+        if (localStorage.getItem('city') === null) {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(this.geolocationSuccess, this.geolocationError);
             };
