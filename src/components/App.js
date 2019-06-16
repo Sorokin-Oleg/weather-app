@@ -59,9 +59,9 @@ class App extends Component {
     };
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ currentDayData }) => {
     return {
-        icon: state.currentDayData.icon
+        icon: currentDayData.icon
     };
 };
 
