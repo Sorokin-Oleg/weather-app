@@ -35,7 +35,11 @@ module.exports = {
                 }
             }, {
             test: /\.(eot|svg|ttf|woff|woff2)$/,            
-            loader: 'url-loader?limit=100000?name=./assets/fonts/[name].[ext]'
+            loader: 'url-loader',
+            options: {
+                name: './assets/fonts/[name].[ext]',
+                limit: '1000000'
+            }
             }, {
             test: /\.scss$/,
             use: [
@@ -43,10 +47,10 @@ module.exports = {
                 MiniCssExtractPlugin.loader,
                 {
                 loader: 'css-loader',
-                options: { sourceMap: true }
+                options: { sourceMap: true, url: false }
                 }, {
                 loader: 'postcss-loader',
-                options: { sourceMap: true, config: { path: `${PATHS.src}/js/postcss.config.js` } }
+                options: { sourceMap: true, config: { path: `./postcss.config.js` } }
                 }, {
                 loader: 'sass-loader',
                 options: { sourceMap: true }
@@ -59,10 +63,10 @@ module.exports = {
                 MiniCssExtractPlugin.loader,
                 {
                 loader: 'css-loader',
-                options: { sourceMap: true }
+                options: { sourceMap: true, url: false }
                 }, {
                 loader: 'postcss-loader',
-                options: { sourceMap: true, config: { path: `${PATHS.src}/js/postcss.config.js` } }
+                options: { sourceMap: true, config: { path: `./postcss.config.js` } }
                 }
             ]
         }]
@@ -72,7 +76,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: `./${PATHS.assets}css/[name].css`,
+            filename: `${PATHS.assets}css/[name].css`,
         }),
         // Copy HtmlWebpackPlugin and change index.html for another html page
         new HtmlWebpackPlugin({
@@ -81,9 +85,9 @@ module.exports = {
             filename: './index.html'
         }),
         new CopyWebpackPlugin([
-            { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },      
+            { from: `${PATHS.src}/${PATHS.assets}/img`, to: `${PATHS.assets}img` },      
             { from: `${PATHS.src}/static`, to: '' },
-            { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` }
+            { from: `${PATHS.src}/${PATHS.assets}/fonts`, to: `${PATHS.assets}fonts` }
         ])
     ],
 };

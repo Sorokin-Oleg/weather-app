@@ -1,10 +1,10 @@
+import './main.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import App from './components/App'
-
-import './main.scss';
 
 const store = configureStore();
   
