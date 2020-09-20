@@ -1,52 +1,52 @@
 .container-search {
-    grid-area: search;
-    display: flex;
-    & input {
-        background: rgba(255, 255, 255, 0.3);
-        color: rgba(255, 255, 255, 1);
-        outline-width: 0;
-        border: none;
-        height: 100%;
-        width: 100%;
-        padding: 0 3rem;
-        font-size: 1.6rem;
-        &::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
+  grid-area: search;
+  display: flex;
+  & input {
+    background: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 1);
+    outline-width: 0;
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 0 3rem;
+    font-size: 1.6rem;
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
     }
-    & button {
-        cursor: pointer;
-        background: rgba(255, 255, 255, 0.3);
-        min-width: 5rem;
-        height: 100%;
-        border: none;
-        padding: 0;
-        font-size: 2rem;
-        color: rgba(255, 255, 255, 0.7);
-        outline-width: 0;
-        &:hover {
-            background: rgba(255, 255, 255, 0.5);
-        }
-        &:active {
-            color: #fff200;
-        }
+  }
+  & button {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+    min-width: 5rem;
+    height: 100%;
+    border: none;
+    padding: 0;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    outline-width: 0;
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
     }
+    &:active {
+      color: #fff200;
+    }
+  }
 }
 .search-error-info {
-    &::placeholder {
-        color: #f53b57!important;
-    }
+  &::placeholder {
+    color: #f53b57 !important;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .container-search {
-        & input {
-            font-size: 1.2rem;
-            padding: 0 1.5rem;
-        }
-        & button {           
-            font-size: 1.2rem;
-            background: rgba(255, 255, 255, 0.5);
-        }
+  .container-search {
+    & input {
+      font-size: 1.2rem;
+      padding: 0 1.5rem;
     }
+    & button {
+      font-size: 1.2rem;
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
 }

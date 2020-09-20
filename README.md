@@ -1,4 +1,4 @@
-# weather-app
+# [weather-app](https://sorokin-oleg.github.io/weather-app/)
 ### Weather app with 5-day weather forecast (React, Redux, Grid, API)
 
 This weather application displays the current weather forecast, as well as the weather forecast for the next five days.
@@ -13,4 +13,4 @@ There is also a metric system of units for the imperial.
 - [SASS](https://sass-lang.com/)
 - [API](https://openweathermap.org) - openweathermap.org
 
-You can view the working version here: https://sorokin-oleg.github.io/weather-app-build/
+You can view the working version here: https://sorokin-oleg.github.io/weather-app/

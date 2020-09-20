@@ -1,28 +1,29 @@
 .container-section-day {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 2fr 1fr 2fr;
-    grid-template-rows: 5rem 3fr 1fr 2fr 8fr 1fr 1fr 4fr;
-    grid-template-areas: 'search search search'
-                         'sunrise lang sunset'
-                         'city city city'
-                         'temp temp temp'
-                         'weatherIcon weatherIcon weatherIcon'
-                         'description description description'
-                         'date date date'
-                         'main main main';
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-rows: 5rem 3fr 1fr 2fr 8fr 1fr 1fr 4fr;
+  grid-template-areas:
+    "search search search"
+    "sunrise lang sunset"
+    "city city city"
+    "temp temp temp"
+    "weatherIcon weatherIcon weatherIcon"
+    "description description description"
+    "date date date"
+    "main main main";
 }
 
 @media screen and (max-width: 768px) {
-    .container-section-day {
-        height: 80%;        
-    }
+  .container-section-day {
+    height: 80%;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .container-section-day {
-        height: 80%;
-        grid-template-rows: 5rem 2fr 1fr 2fr 5fr 1fr 1fr 2fr;       
-    }
+  .container-section-day {
+    height: 80%;
+    grid-template-rows: 5rem 2fr 1fr 2fr 5fr 1fr 1fr 2fr;
+  }
 }

@@ -1,14 +1,14 @@
-import React from 'react';
-import './City.scss';
+import React from "react";
+import "./City.scss";
 
-const City = ({currentCity}) => (
-    <div className='container-city'>
-        <span>{currentCity.toUpperCase()}</span>
-    </div>
+const City = ({ currentCity }) => (
+  <div className="container-city">
+    <span>{currentCity.toUpperCase()}</span>
+  </div>
 );
 
 City.defaultProps = {
-    currentCity: 'City'
+  currentCity: "City",
 };
 
 export default City;

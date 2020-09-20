@@ -1,33 +1,33 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { changeUnit } from './../../../actions/actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { changeUnit } from "./../../../actions/actions";
 
-import './Temperature.scss';
+import "./Temperature.scss";
 
 class Temperature extends Component {
-    сhangeUnits = () => {
-        this.props.dispatch(changeUnit(!this.props.tempUnits));
-        localStorage.setItem('unit', !this.props.tempUnits);
-    };
+  сhangeUnits = () => {
+    this.props.dispatch(changeUnit(!this.props.tempUnits));
+    localStorage.setItem("unit", !this.props.tempUnits);
+  };
 
-    render () {
-        return ( 
-            <div className='container-temp'>
-                <div className='content-temp'>
-                    <span id='temp'>{Math.round(this.props.temp)}°</span>
-                    <div className='content-button-temp'>
-                        <span>{this.props.tempUnits ? 'C': 'F'}</span>
-                        <button onClick={this.сhangeUnits}>{this.props.tempUnits ? 'F': 'C'}</button>
-                    </div>
-                </div>
-            </div>
-        );
-    };
-};
+  render() {
+    return (
+      <div className="container-temp">
+        <div className="content-temp">
+          <span id="temp">{Math.round(this.props.temp)}°</span>
+          <div className="content-button-temp">
+            <span>{this.props.tempUnits ? "C" : "F"}</span>
+            <button onClick={this.сhangeUnits}>{this.props.tempUnits ? "F" : "C"}</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 Temperature.defaultProps = {
-    temp: '0',
-    tempUnits: 'C'
+  temp: "0",
+  tempUnits: "C",
 };
 
-export default connect() (Temperature);
+export default connect()(Temperature);

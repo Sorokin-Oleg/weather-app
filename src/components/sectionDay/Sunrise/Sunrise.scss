@@ -1,21 +1,21 @@
 .container-sunrise {
-    grid-area: sunrise;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    padding-left: 10%;  
-    & span {
-        color: #fff;
-        font-size: 1.6rem;
-        padding: 0.2rem 0;     
-    }
+  grid-area: sunrise;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 10%;
+  & span {
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 0.2rem 0;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .container-sunrise {
-        & span {
-            font-size: 1.2rem;
-        }
+  .container-sunrise {
+    & span {
+      font-size: 1.2rem;
     }
+  }
 }

@@ -1,18 +1,18 @@
 .container-weather-description {
-    grid-area: description;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    & span {
-        color: #fff;
-        font-size: 3rem;
-    }
+  grid-area: description;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & span {
+    color: #fff;
+    font-size: 3rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .container-weather-description {
-        & span {
-            font-size: 1.6rem;
-        }
+  .container-weather-description {
+    & span {
+      font-size: 1.6rem;
     }
+  }
 }
